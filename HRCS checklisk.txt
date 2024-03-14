@@ -1,0 +1,39 @@
+run hrcsmk command with name of half-life 2 map
+copy to project folder
+save map with hrcs suffix
+extract wvt patches
+change "fademaxdist" (0), "fademindist" (-1), "PerformanceMode" (2)
+find lowest "lightmapscale" in the level
+change "lightmapscale" (variable)
+change changelevel triggers to maps with hrcs suffix
+remove non-beginning info_player_start
+find/add logic_auto to exec r_lod 0, cl_detaildist 65535 and r_decals 65535
+make overlays compile
+change cubemaps to 256x256
+remove all func_occluder
+convert all areaportalwindow
+remove fog culling
+set ragdoll manager to -1
+convert func_lod to func_detail
+change func_wall to func_brush
+find func_brush and convert/cast shadows if apt
+convert disabled motion disabled prop_physics if apt
+find uneccesary prop_dynamic and convert to prop_static if apt
+convert prop_detail to prop_static
+replace LOD models with higher poly models when possible
+make all prop_physics and prop_dynamic cast shadows (and disable if necessary)
+make static props cast shadows
+run transext to make a model of transparent brushes
+open _model.vmf and tweak brush faces
+run vmf2mdl to compile the model
+check the model for light blocking and adjust vmts and vtfs accordingly
+run addmdl to add the translucent map model to the map
+check for fixeable lighting issues
+build ldr cubemaps
+build hdr cubemaps
+build navmesh
+run shottake in project directory to take screenshots
+run shotconv in project directory to prepare them for steam
+run addonmk  in project directory to prepare the addon folder
+create addon.json
+run addonpub in project directory to publish to steam

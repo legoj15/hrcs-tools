@@ -1,0 +1,4 @@
+# hrcsmk - HRCS Make
+ hrcsmk creates the original project directory in my projects folder. It takes a Half-Life 2 map name as an input, goes up one directory, goes into a folder named "HL2-MapPack", and copies the vmf to the newly created project directory with the "_hrcs" suffix appended to the filename. It also removes the Windows File Explorer "Read Only" attribute from the copied file if it is set. It also copies "HRCS checklisk.txt" from the current directory into the new project directory.
+ After the VMF is copied, it reads the VMF file and looks for all occurances of "info_player_start" and "game_ragdoll_manager". If "info_player_start" appears exactly once, it opens the copied "HRCS checklisk.txt" and removes the 'remove non-beginning info_player_start' line. If game_ragdoll_manager does not appear at all, it removes the line that says 'set ragdoll manager to -1'
+ It then runs the maxvis, entconv, and wvtextract scripts on the copied VMF file
